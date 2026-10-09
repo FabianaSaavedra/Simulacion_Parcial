@@ -363,7 +363,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &119369219
+--- !u!1 &814413673
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -371,50 +371,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 119369222}
-  - component: {fileID: 119369221}
-  - component: {fileID: 119369220}
+  - component: {fileID: 814413676}
+  - component: {fileID: 814413675}
+  - component: {fileID: 814413674}
   m_Layer: 0
-  m_Name: Alien (3)
+  m_Name: Soldado (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &119369220
+--- !u!114 &814413674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119369219}
+  m_GameObject: {fileID: 814413673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fa30dae8a287d46a0e8b3391b6bd55, type: 3}
+  m_Script: {fileID: 11500000, guid: 93684f702cf15fd43ab94454cfea57f4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Alien
+  m_EditorClassIdentifier: Assembly-CSharp::Soldier
   maxHealth: 10
   health: 0
-  speed: 2
+  speed: 2.5
   visionRange: 5
   state: 0
   timeInState: 0
-  variant: 0
-  damage: 1
-  attackRange: 0.8
-  attackCooldown: 1
-  fastChance: 0.2
-  tankChance: 0.15
-  advancingColor: {r: 0.4, g: 1, b: 0.3, a: 1}
-  attackingColor: {r: 1, g: 0.25, b: 0.25, a: 1}
-  fightingColor: {r: 1, g: 0.6, b: 0.1, a: 1}
---- !u!212 &119369221
+  shootRange: 3
+  shotDamage: 1.5
+  fireCooldown: 0.6
+  maxAmmo: 10
+  ammo: 0
+  energyPerFullReload: 6
+  reloadTime: 2
+  reloadDistance: 0.9
+  patrolRadius: 3
+  arriveDistance: 1.5
+  patrollingColor: {r: 0.3, g: 0.5, b: 1, a: 1}
+  fightingColor: {r: 1, g: 0.9, b: 0.2, a: 1}
+  repositioningColor: {r: 0.75, g: 0.4, b: 1, a: 1}
+  reloadingColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  tracerColor: {r: 1, g: 0.95, b: 0.4, a: 1}
+--- !u!212 &814413675
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119369219}
+  m_GameObject: {fileID: 814413673}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -455,8 +461,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.357389, g: 0.7660377, b: 0.02746162, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -466,22 +472,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &119369222
+--- !u!4 &814413676
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119369219}
+  m_GameObject: {fileID: 814413673}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.41, y: -7.22, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalPosition: {x: -2, y: -1, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &173105757
+--- !u!1 &885227353
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -489,50 +495,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 173105760}
-  - component: {fileID: 173105759}
-  - component: {fileID: 173105758}
+  - component: {fileID: 885227356}
+  - component: {fileID: 885227355}
+  - component: {fileID: 885227354}
   m_Layer: 0
-  m_Name: Alien (5)
+  m_Name: Soldado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &173105758
+--- !u!114 &885227354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173105757}
+  m_GameObject: {fileID: 885227353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fa30dae8a287d46a0e8b3391b6bd55, type: 3}
+  m_Script: {fileID: 11500000, guid: 93684f702cf15fd43ab94454cfea57f4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Alien
+  m_EditorClassIdentifier: Assembly-CSharp::Soldier
   maxHealth: 10
   health: 0
-  speed: 2
+  speed: 2.5
   visionRange: 5
   state: 0
   timeInState: 0
-  variant: 0
-  damage: 1
-  attackRange: 0.8
-  attackCooldown: 1
-  fastChance: 0.2
-  tankChance: 0.15
-  advancingColor: {r: 0.4, g: 1, b: 0.3, a: 1}
-  attackingColor: {r: 1, g: 0.25, b: 0.25, a: 1}
-  fightingColor: {r: 1, g: 0.6, b: 0.1, a: 1}
---- !u!212 &173105759
+  shootRange: 3
+  shotDamage: 1.5
+  fireCooldown: 0.6
+  maxAmmo: 10
+  ammo: 0
+  energyPerFullReload: 6
+  reloadTime: 2
+  reloadDistance: 0.9
+  patrolRadius: 3
+  arriveDistance: 1.5
+  patrollingColor: {r: 0.3, g: 0.5, b: 1, a: 1}
+  fightingColor: {r: 1, g: 0.9, b: 0.2, a: 1}
+  repositioningColor: {r: 0.75, g: 0.4, b: 1, a: 1}
+  reloadingColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  tracerColor: {r: 1, g: 0.95, b: 0.4, a: 1}
+--- !u!212 &885227355
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173105757}
+  m_GameObject: {fileID: 885227353}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -573,8 +585,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.357389, g: 0.7660377, b: 0.02746162, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -584,22 +596,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &173105760
+--- !u!4 &885227356
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173105757}
+  m_GameObject: {fileID: 885227353}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.42, y: 0.39, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &182104862
+--- !u!1 &1076099375
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -607,50 +619,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 182104865}
-  - component: {fileID: 182104864}
-  - component: {fileID: 182104863}
+  - component: {fileID: 1076099378}
+  - component: {fileID: 1076099377}
+  - component: {fileID: 1076099376}
   m_Layer: 0
-  m_Name: Alien (2)
+  m_Name: Soldado (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &182104863
+--- !u!114 &1076099376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182104862}
+  m_GameObject: {fileID: 1076099375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fa30dae8a287d46a0e8b3391b6bd55, type: 3}
+  m_Script: {fileID: 11500000, guid: 93684f702cf15fd43ab94454cfea57f4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Alien
+  m_EditorClassIdentifier: Assembly-CSharp::Soldier
   maxHealth: 10
   health: 0
-  speed: 2
+  speed: 2.5
   visionRange: 5
   state: 0
   timeInState: 0
-  variant: 0
-  damage: 1
-  attackRange: 0.8
-  attackCooldown: 1
-  fastChance: 0.2
-  tankChance: 0.15
-  advancingColor: {r: 0.4, g: 1, b: 0.3, a: 1}
-  attackingColor: {r: 1, g: 0.25, b: 0.25, a: 1}
-  fightingColor: {r: 1, g: 0.6, b: 0.1, a: 1}
---- !u!212 &182104864
+  shootRange: 3
+  shotDamage: 1.5
+  fireCooldown: 0.6
+  maxAmmo: 10
+  ammo: 0
+  energyPerFullReload: 6
+  reloadTime: 2
+  reloadDistance: 0.9
+  patrolRadius: 3
+  arriveDistance: 1.5
+  patrollingColor: {r: 0.3, g: 0.5, b: 1, a: 1}
+  fightingColor: {r: 1, g: 0.9, b: 0.2, a: 1}
+  repositioningColor: {r: 0.75, g: 0.4, b: 1, a: 1}
+  reloadingColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  tracerColor: {r: 1, g: 0.95, b: 0.4, a: 1}
+--- !u!212 &1076099377
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182104862}
+  m_GameObject: {fileID: 1076099375}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -691,8 +709,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.357389, g: 0.7660377, b: 0.02746162, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -702,135 +720,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &182104865
+--- !u!4 &1076099378
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182104862}
+  m_GameObject: {fileID: 1076099375}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2, y: 2.32, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &628894961
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 628894964}
-  - component: {fileID: 628894963}
-  - component: {fileID: 628894962}
-  m_Layer: 0
-  m_Name: Alien (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &628894962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628894961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fa30dae8a287d46a0e8b3391b6bd55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Alien
-  maxHealth: 10
-  health: 0
-  speed: 2
-  visionRange: 5
-  state: 0
-  timeInState: 0
-  variant: 0
-  damage: 1
-  attackRange: 0.8
-  attackCooldown: 1
-  fastChance: 0.2
-  tankChance: 0.15
-  advancingColor: {r: 0.4, g: 1, b: 0.3, a: 1}
-  attackingColor: {r: 1, g: 0.25, b: 0.25, a: 1}
-  fightingColor: {r: 1, g: 0.6, b: 0.1, a: 1}
---- !u!212 &628894963
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628894961}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.357389, g: 0.7660377, b: 0.02746162, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &628894964
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628894961}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.45, y: -4.67, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalPosition: {x: -4, y: -3, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -886,7 +786,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1237066846
+--- !u!1 &1451563747
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -894,112 +794,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1237066849}
-  - component: {fileID: 1237066848}
-  - component: {fileID: 1237066847}
+  - component: {fileID: 1451563749}
+  - component: {fileID: 1451563748}
   m_Layer: 0
-  m_Name: Alien (1)
+  m_Name: Oleadas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1237066847
+--- !u!114 &1451563748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237066846}
+  m_GameObject: {fileID: 1451563747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fa30dae8a287d46a0e8b3391b6bd55, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d5132921f80f7c40bb7d43bd599e302, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Alien
-  maxHealth: 10
-  health: 0
-  speed: 2
-  visionRange: 5
+  m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
+  alienPrefab: {fileID: 823548626727735729, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+  totalWaves: 5
+  firstWaveSize: 4
+  sizeIncrease: 2
+  firstDelay: 3
+  timeBetweenWaves: 12
+  spawnInterval: 0.4
+  mapHalfSize: {x: 13, y: 7.5}
+  groupSpread: 1.2
   state: 0
-  timeInState: 0
-  variant: 0
-  damage: 1
-  attackRange: 0.8
-  attackCooldown: 1
-  fastChance: 0.2
-  tankChance: 0.15
-  advancingColor: {r: 0.4, g: 1, b: 0.3, a: 1}
-  attackingColor: {r: 1, g: 0.25, b: 0.25, a: 1}
-  fightingColor: {r: 1, g: 0.6, b: 0.1, a: 1}
---- !u!212 &1237066848
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237066846}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.357389, g: 0.7660377, b: 0.02746162, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1237066849
+  currentWave: 0
+  timer: 0
+  aliensLeftToSpawn: 0
+--- !u!4 &1451563749
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237066846}
+  m_GameObject: {fileID: 1451563747}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: -4, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1088,124 +927,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1680459938
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1680459941}
-  - component: {fileID: 1680459942}
-  - component: {fileID: 1680459940}
-  m_Layer: 0
-  m_Name: Alien
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1680459940
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680459938}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.357389, g: 0.7660377, b: 0.02746162, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1680459941
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680459938}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 4, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1680459942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680459938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fa30dae8a287d46a0e8b3391b6bd55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Alien
-  maxHealth: 10
-  health: 0
-  speed: 2
-  visionRange: 5
-  state: 0
-  timeInState: 0
-  variant: 0
-  damage: 1
-  attackRange: 0.8
-  attackCooldown: 1
-  fastChance: 0.2
-  tankChance: 0.15
-  advancingColor: {r: 0.4, g: 1, b: 0.3, a: 1}
-  attackingColor: {r: 1, g: 0.25, b: 0.25, a: 1}
-  fightingColor: {r: 1, g: 0.6, b: 0.1, a: 1}
 --- !u!1 &1817549537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1064,63 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1001 &931908239531671237
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 823548626727735729, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_Name
+      value: Alien
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289489015589085939, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289489015589085939, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289489015589085939, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289489015589085939, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289489015589085939, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289489015589085939, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289489015589085939, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289489015589085939, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289489015589085939, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289489015589085939, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c98f661e9423aaf4bbbdddbe39158ac4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1352,9 +1130,8 @@ SceneRoots:
   - {fileID: 1191164672}
   - {fileID: 17313170}
   - {fileID: 103643159}
-  - {fileID: 1680459941}
-  - {fileID: 1237066849}
-  - {fileID: 182104865}
-  - {fileID: 119369222}
-  - {fileID: 628894964}
-  - {fileID: 173105760}
+  - {fileID: 931908239531671237}
+  - {fileID: 885227356}
+  - {fileID: 814413676}
+  - {fileID: 1076099378}
+  - {fileID: 1451563749}
