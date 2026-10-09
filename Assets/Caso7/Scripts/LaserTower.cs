@@ -101,6 +101,7 @@ public class LaserTower : Agent<TowerState>
         energy -= energyPerShot;
         fireTimer = fireCooldown;
         ShowLaser(target.transform.position);
+        SfxPlayer.PlayLaser();
     }
 
     bool AlienInRange()

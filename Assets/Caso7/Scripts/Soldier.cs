@@ -172,6 +172,7 @@ public class Soldier : Agent<SoldierState>
             ammo--;
             fireTimer = fireCooldown;
             ShowTracer(targetAlien.transform.position);
+            SfxPlayer.PlayShot();
         }
     }
 
