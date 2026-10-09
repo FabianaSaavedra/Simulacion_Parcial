@@ -869,6 +869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1191164672}
   - component: {fileID: 1191164673}
+  - component: {fileID: 1191164674}
   m_Layer: 0
   m_Name: Simulacion
   m_TagString: Untagged
@@ -911,6 +912,22 @@ MonoBehaviour:
   simulatedTime: 0
   iterations: 0
   endReason: 
+--- !u!114 &1191164674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191164670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29789a9bf4666844941f8088e555c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimulationHUD
+  sim: {fileID: 0}
+  spawner: {fileID: 0}
+  showBars: 1
+  showLegend: 1
 --- !u!1 &1451563747
 GameObject:
   m_ObjectHideFlags: 0

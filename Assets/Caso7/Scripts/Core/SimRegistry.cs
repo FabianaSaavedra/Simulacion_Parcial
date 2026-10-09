@@ -42,10 +42,7 @@ public static class SimRegistry
         return n;
     }
 
-    /// <summary>
-    /// La entidad viva más cercana de un tipo dentro de un rango (percepción del agente).
-    /// Devuelve null si no hay ninguna en el rango.
-    /// </summary>
+    
     public static T FindNearest<T>(Vector3 from, float range) where T : SimEntity
     {
         T best = null;
