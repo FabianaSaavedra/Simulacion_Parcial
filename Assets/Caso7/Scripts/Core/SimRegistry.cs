@@ -1,11 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Lista central de todas las entidades vivas de la simulación.
-/// Reemplaza a FindObjectsByType y a las LayerMask: cualquier agente puede preguntar
-/// "¿cuál es el alien más cercano?" sin configurar capas en Unity.
-/// </summary>
+
 public static class SimRegistry
 {
     static readonly List<SimEntity> entities = new List<SimEntity>();

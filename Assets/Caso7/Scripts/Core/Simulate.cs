@@ -1,16 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Motor de la simulación (requisito del parcial: "Clase Simulate.cs").
-/// Es el ÚNICO lugar desde donde se llama el Simulate(h) de cada entidad.
-///
-/// Usa un paso de tiempo fijo h: la simulación avanza igual sin importar los FPS,
-/// y speedMultiplier permite acelerarla o pausarla para observar las dinámicas.
-///
-/// Nota: la clase no puede tener un método llamado "Simulate" (C# no permite que un
-/// método se llame igual que su clase), por eso el paso global se llama Step().
-/// </summary>
+
 public class Simulate : MonoBehaviour
 {
     [Header("Tiempo de simulación")]

@@ -1,16 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Base de todos los agentes con estados (Alien, Soldado, Torre).
-/// TState es el enum de estados de cada agente, por ejemplo AlienState.
-///
-/// Cada paso hace siempre lo mismo, en este orden:
-///   1. DecideState(): revisa lo que percibe y decide si cambia de estado.
-///                     (las transiciones se deciden SOLO aquí)
-///   2. Act():         ejecuta el comportamiento del estado actual.
-/// Así el comportamiento es predecible y se puede dibujar como diagrama de estados.
-/// </summary>
+
 public abstract class Agent<TState> : SimEntity, IDamageable
     where TState : struct, System.Enum
 {
