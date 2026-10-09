@@ -1,15 +1,6 @@
 using UnityEngine;
 
-/// <summary>
-/// ALIEN: atacante. Avanza hacia la base para destruirla.
-///
-/// Versión 1 (paso 3): solo existe la "Base" como punto de destino.
-///   Advancing      -> camina hacia la base.
-///   AttackingTower -> llegó a la base (todavía no hace daño: las torres llegan en otro paso).
-///   AttackingSoldier queda preparado para cuando existan los soldados.
-///
-/// Al nacer, cada alien puede salir al azar como "Rápido" o "Tanque".
-/// </summary>
+
 public class Alien : Agent<AlienState>
 {
     public enum Variant { Normal, Rapido, Tanque }
@@ -19,39 +10,31 @@ public class Alien : Agent<AlienState>
     public float damage = 1f;
     [Tooltip("Distancia a la que puede atacar.")]
     public float attackRange = 0.8f;
-
-    [Header("Objetivo (temporal: luego serán las torres)")]
-    [Tooltip("Si se deja vacío, busca un objeto llamado 'Base' en la escena.")]
-    public Transform baseTarget;
+    [Tooltip("Segundos entre ataques.")]
+    public float attackCooldown = 1f;
 
     [Header("Variantes aleatorias")]
     [Range(0f, 1f)] public float fastChance = 0.2f;
     [Range(0f, 1f)] public float tankChance = 0.15f;
 
     [Header("Colores por estado")]
-    public Color advancingColor = new Color(0.4f, 1f, 0.3f);    // verde alien
-    public Color attackingColor = new Color(1f, 0.25f, 0.25f);  // rojo
-    public Color fightingColor  = new Color(1f, 0.6f, 0.1f);    // naranja
+    public Color advancingColor = new Color(0.4f, 1f, 0.3f);
+    public Color attackingColor = new Color(1f, 0.25f, 0.25f);
+    public Color fightingColor = new Color(1f, 0.6f, 0.1f);
 
     SpriteRenderer sr;
+    LaserTower targetTower;
+    float attackTimer;
 
     protected override void Awake()
     {
-        RollVariant();     // primero cambia los atributos según la variante...
-        base.Awake();      // ...y luego Agent pone health = maxHealth
-
+        RollVariant();
+        base.Awake();
         sr = GetComponent<SpriteRenderer>();
-
-        if (baseTarget == null)
-        {
-            GameObject b = GameObject.Find("Base");
-            if (b != null) baseTarget = b.transform;
-        }
-
         UpdateColor();
     }
 
-    /// <summary>Decide al azar si este alien es Normal, Rápido o Tanque.</summary>
+
     void RollVariant()
     {
         float r = Random.value;
@@ -80,22 +63,23 @@ public class Alien : Agent<AlienState>
     // ---------- 1. DECIDIR (único lugar con transiciones) ----------
     protected override void DecideState()
     {
-        if (baseTarget == null) return;
 
-        float distToBase = Vector2.Distance(transform.position, baseTarget.position);
+        targetTower = SimRegistry.FindNearest<LaserTower>(transform.position, Mathf.Infinity);
+
+        bool towerInReach = targetTower != null && DistanceTo(targetTower) <= attackRange;
 
         switch (state)
         {
             case AlienState.Advancing:
-                if (distToBase <= attackRange) ChangeState(AlienState.AttackingTower);
+                if (towerInReach) ChangeState(AlienState.AttackingTower);
                 break;
 
             case AlienState.AttackingTower:
-                if (distToBase > attackRange) ChangeState(AlienState.Advancing);
+                if (!towerInReach) ChangeState(AlienState.Advancing);
                 break;
 
             case AlienState.AttackingSoldier:
-                // Todavía no hay soldados: vuelve a avanzar.
+
                 ChangeState(AlienState.Advancing);
                 break;
         }
@@ -104,14 +88,20 @@ public class Alien : Agent<AlienState>
     // ---------- 2. ACTUAR según el estado ----------
     protected override void Act()
     {
+        attackTimer -= h;
+
         switch (state)
         {
             case AlienState.Advancing:
-                if (baseTarget != null) MoveTowards(baseTarget.position);
+                if (targetTower != null) MoveTowards(targetTower.transform.position);
                 break;
 
             case AlienState.AttackingTower:
-                // Se queda quieto atacando. El daño real se agrega cuando existan las torres.
+                if (targetTower != null && attackTimer <= 0f)
+                {
+                    targetTower.TakeDamage(damage, this);
+                    attackTimer = attackCooldown;
+                }
                 break;
 
             case AlienState.AttackingSoldier:
@@ -130,9 +120,9 @@ public class Alien : Agent<AlienState>
 
         switch (state)
         {
-            case AlienState.Advancing:        sr.color = advancingColor; break;
-            case AlienState.AttackingTower:   sr.color = attackingColor; break;
-            case AlienState.AttackingSoldier: sr.color = fightingColor;  break;
+            case AlienState.Advancing: sr.color = advancingColor; break;
+            case AlienState.AttackingTower: sr.color = attackingColor; break;
+            case AlienState.AttackingSoldier: sr.color = fightingColor; break;
         }
     }
 
@@ -143,3 +133,4 @@ public class Alien : Agent<AlienState>
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
+
