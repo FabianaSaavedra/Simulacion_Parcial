@@ -129,7 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1191164672}
   - component: {fileID: 1191164673}
+  - component: {fileID: 1191164676}
   - component: {fileID: 1191164674}
+  - component: {fileID: 1191164675}
   m_Layer: 0
   m_Name: Simulacion
   m_TagString: Untagged
@@ -190,6 +192,118 @@ MonoBehaviour:
   showLegend: 1
   textScale: 1.4
   panelOpacity: 0.8
+--- !u!82 &1191164675
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191164670}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1191164676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191164670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9502d5f389003c4399521101ce9b9ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EndSounds
+  victoriaClip: {fileID: 8300000, guid: b00b53dcbd6544f41b58c1d0d3e26595, type: 3}
+  derrotaClip: {fileID: 8300000, guid: 406a81aa3fd2c9041b5f711964a0d379, type: 3}
+  volume: 0.8
 --- !u!1 &1451563747
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +594,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1279641216440365143, guid: d995bbd91ed2f9b4f98657eabdb62027, type: 3}
+    - target: {fileID: 6051892022138139818, guid: 874aed1fdaee715488f50fba95a5e7e9, type: 3}
+      propertyPath: maxHealth
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7198489571231352218, guid: 874aed1fdaee715488f50fba95a5e7e9, type: 3}
       propertyPath: m_Name
       value: Soldado
@@ -723,6 +841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldado (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8989884606183124325, guid: c02c1609856d9e0479bb040c900ab79f, type: 3}
+      propertyPath: maxHealth
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -780,6 +902,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torre2
       objectReference: {fileID: 0}
+    - target: {fileID: 4107588111525836092, guid: cb3c3705dab4603458020e71949092a1, type: 3}
+      propertyPath: idleColor.b
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107588111525836092, guid: cb3c3705dab4603458020e71949092a1, type: 3}
+      propertyPath: idleColor.g
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107588111525836092, guid: cb3c3705dab4603458020e71949092a1, type: 3}
+      propertyPath: idleColor.r
+      value: 0.54509807
+      objectReference: {fileID: 0}
     - target: {fileID: 5682479082921624413, guid: cb3c3705dab4603458020e71949092a1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -809,6 +943,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2169059150369825451, guid: 3d129349e95d61f4b9bda378e83407a7, type: 3}
+      propertyPath: idleColor.b
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 2169059150369825451, guid: 3d129349e95d61f4b9bda378e83407a7, type: 3}
+      propertyPath: idleColor.g
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 2169059150369825451, guid: 3d129349e95d61f4b9bda378e83407a7, type: 3}
+      propertyPath: idleColor.r
+      value: 0.54509807
+      objectReference: {fileID: 0}
     - target: {fileID: 2372450214933731154, guid: 3d129349e95d61f4b9bda378e83407a7, type: 3}
       propertyPath: m_Name
       value: Torre3
@@ -926,6 +1072,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldado (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7601798506071191066, guid: d1e3476cf20738e46a5ee7bff102bf88, type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -939,6 +1089,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5537201901818348827, guid: 19cfb1b89a7bfd947a83c2644dd4ea35, type: 3}
+      propertyPath: maxHealth
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6449657987834907227, guid: 19cfb1b89a7bfd947a83c2644dd4ea35, type: 3}
       propertyPath: m_Sprite
       value: 
