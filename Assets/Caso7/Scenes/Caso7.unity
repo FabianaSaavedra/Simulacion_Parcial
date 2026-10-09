@@ -660,6 +660,14 @@ PrefabInstance:
       value: Torre1
       objectReference: {fileID: 0}
     - target: {fileID: 1878495365114961960, guid: ca2734d7b7a22704885329303f72e988, type: 3}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878495365114961960, guid: ca2734d7b7a22704885329303f72e988, type: 3}
+      propertyPath: shotDamage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1878495365114961960, guid: ca2734d7b7a22704885329303f72e988, type: 3}
       propertyPath: idleColor.b
       value: 0.16862746
       objectReference: {fileID: 0}
@@ -903,6 +911,10 @@ PrefabInstance:
       value: Torre2
       objectReference: {fileID: 0}
     - target: {fileID: 4107588111525836092, guid: cb3c3705dab4603458020e71949092a1, type: 3}
+      propertyPath: shotDamage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107588111525836092, guid: cb3c3705dab4603458020e71949092a1, type: 3}
       propertyPath: idleColor.b
       value: 0.16862746
       objectReference: {fileID: 0}
@@ -943,6 +955,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2169059150369825451, guid: 3d129349e95d61f4b9bda378e83407a7, type: 3}
+      propertyPath: shotDamage
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2169059150369825451, guid: 3d129349e95d61f4b9bda378e83407a7, type: 3}
       propertyPath: idleColor.b
       value: 0.16862746
