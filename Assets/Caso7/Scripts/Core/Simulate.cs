@@ -16,12 +16,20 @@ public class Simulate : MonoBehaviour
 
     [Header("Estado de la simulación (solo lectura)")]
     public bool isRunning = true;
+    public bool victory;
     public float simulatedTime;
     public int iterations;
     public string endReason = "";
 
     float accumulator;
     readonly List<SimEntity> snapshot = new List<SimEntity>();
+    WaveSpawner spawner;
+    bool hadTowers;
+
+    void Start()
+    {
+        spawner = FindFirstObjectByType<WaveSpawner>();
+    }
 
     void Update()
     {
@@ -61,21 +69,35 @@ public class Simulate : MonoBehaviour
         CheckEndConditions();
     }
 
-    /// <summary>
-    /// Condiciones de victoria y derrota.
-    /// Se completa en los siguientes pasos, cuando existan las torres y las oleadas.
-    /// </summary>
+    
     void CheckEndConditions()
     {
-        // Ejemplo de lo que vendrá:
-        // if (SimRegistry.Count<LaserTower>() == 0) EndSimulation(false, "Destruyeron todas las torres");
+        int towersAlive = SimRegistry.Count<LaserTower>();
+
+        if (towersAlive > 0)
+        {
+            hadTowers = true;
+        }
+        else if (hadTowers)
+        {
+            EndSimulation(false, "Los aliens destruyeron todas las torres");
+            return;
+        }
+
+        if (spawner != null && spawner.AllWavesSpawned
+            && SimRegistry.Count<Alien>() == 0 && towersAlive > 0)
+        {
+            EndSimulation(true, $"Sobrevivieron a las {spawner.totalWaves} oleadas con {towersAlive} torre(s) en pie");
+        }
     }
 
-    public void EndSimulation(bool victory, string reason)
+    public void EndSimulation(bool won, string reason)
     {
         if (!isRunning) return;
         isRunning = false;
-        endReason = (victory ? "VICTORIA: " : "DERROTA: ") + reason;
+        victory = won;
+        endReason = (won ? "VICTORIA: " : "DERROTA: ") + reason;
         Debug.Log($"[Simulate] {endReason} (t = {simulatedTime:F1}s, {iterations} iteraciones)");
     }
 }
+
