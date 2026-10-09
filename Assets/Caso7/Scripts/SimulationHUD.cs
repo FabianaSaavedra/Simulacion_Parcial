@@ -12,18 +12,18 @@ public class SimulationHUD : MonoBehaviour
     public bool showBars = true;
     public bool showLegend = true;
 
-    // Mismos colores por defecto que usan los scripts de cada entidad
-    static readonly Color AlienGreen   = new Color(0.4f, 1f, 0.3f);
-    static readonly Color AlienRed     = new Color(1f, 0.25f, 0.25f);
-    static readonly Color Orange       = new Color(1f, 0.6f, 0.1f);
-    static readonly Color SoldierBlue  = new Color(0.3f, 0.5f, 1f);
-    static readonly Color SoldierYel   = new Color(1f, 0.9f, 0.2f);
-    static readonly Color SoldierPurp  = new Color(0.75f, 0.4f, 1f);
-    static readonly Color SoldierGray  = new Color(0.8f, 0.8f, 0.8f);
-    static readonly Color TowerCyan    = new Color(0.3f, 0.8f, 1f);
-    static readonly Color TowerFiring  = new Color(1f, 1f, 0.6f);
-    static readonly Color TowerOver    = new Color(1f, 0.5f, 0.1f);
-    static readonly Color TowerDead    = new Color(0.25f, 0.25f, 0.25f);
+    
+    static readonly Color AlienGreen = new Color(0.4f, 1f, 0.3f);
+    static readonly Color AlienRed = new Color(1f, 0.25f, 0.25f);
+    static readonly Color Orange = new Color(1f, 0.6f, 0.1f);
+    static readonly Color SoldierBlue = new Color(0.3f, 0.5f, 1f);
+    static readonly Color SoldierYel = new Color(1f, 0.9f, 0.2f);
+    static readonly Color SoldierPurp = new Color(0.75f, 0.4f, 1f);
+    static readonly Color SoldierGray = new Color(0.8f, 0.8f, 0.8f);
+    static readonly Color TowerCyan = new Color(0.3f, 0.8f, 1f);
+    static readonly Color TowerFiring = new Color(1f, 1f, 0.6f);
+    static readonly Color TowerOver = new Color(1f, 0.5f, 0.1f);
+    static readonly Color TowerDead = new Color(0.25f, 0.25f, 0.25f);
 
     GUIStyle titleStyle, labelStyle, smallStyle, bannerStyle, bannerSubStyle, headerStyle;
     float ui;          // escala de la interfaz según la resolución
@@ -43,11 +43,11 @@ public class SimulationHUD : MonoBehaviour
 
         ui = Screen.height / 720f;
 
-        // Las barras se dibujan en píxeles reales de pantalla
+        
         GUI.matrix = Matrix4x4.identity;
         if (showBars) DrawWorldBars();
 
-        // El resto se dibuja en una pantalla "virtual" de 720 de alto, escalada
+        
         GUI.matrix = Matrix4x4.Scale(new Vector3(ui, ui, 1f));
         DrawStatsPanel();
         DrawSpeedControls();
@@ -100,7 +100,7 @@ public class SimulationHUD : MonoBehaviour
         GUI.Box(box, "");
 
         float x = 20, y = 14, w = 280, lh = 22;
-        GUI.Label(new Rect(x, y, w, 26), "CASO 7 · Aliens vs Defensa", titleStyle); y += 28;
+        GUI.Label(new Rect(x, y, w, 26), "Aliens vs Defensa", titleStyle); y += 28;
         GUI.Label(new Rect(x, y, w, lh), $"Tiempo: {sim.simulatedTime:F1} s    Velocidad: x{sim.speedMultiplier:0.#}", labelStyle); y += lh;
         GUI.Label(new Rect(x, y, w, lh), WaveText(), labelStyle); y += lh;
         GUI.Label(new Rect(x, y, w, lh),
@@ -155,31 +155,50 @@ public class SimulationHUD : MonoBehaviour
     }
 
     // ================= LEYENDA DE ESTADOS =================
+    // Tres cuadros abajo: Aliens a la izquierda, Soldados al centro, Torres a la derecha
     void DrawLegend()
     {
+        float vw = Screen.width / ui;   
         float vh = 720f;
-        float w = 210, h = 300;
-        float x = 10, y = vh - h - 10;
+        float w = 210;
+        float margin = 10;
+
+        LegendBox(margin, vh, w, "Aliens", new[]
+        {
+            (AlienGreen, "Avanzando"),
+            (AlienRed,   "Atacando torre"),
+            (Orange,     "Peleando con soldado")
+        });
+
+        LegendBox((vw - w) / 2f, vh, w, "Soldados", new[]
+        {
+            (SoldierBlue, "Patrullando"),
+            (SoldierYel,  "Combatiendo"),
+            (SoldierPurp, "Apoyando otra torre"),
+            (SoldierGray, "Recargando (gasta energía)")
+        });
+
+        LegendBox(vw - w - margin, vh, w, "Torres láser", new[]
+        {
+            (TowerCyan,   "Inactiva (recarga energía)"),
+            (TowerFiring, "Disparando"),
+            (TowerOver,   "Sobrecalentada"),
+            (TowerDead,   "Destruida")
+        });
+    }
+
+    /// <summary>Un cuadro de leyenda pegado al borde de abajo de la pantalla.</summary>
+    void LegendBox(float x, float screenBottom, float w, string title, (Color color, string text)[] rows)
+    {
+        float h = 20 + rows.Length * 19 + 12;
+        float y = screenBottom - h - 10;
 
         GUI.Box(new Rect(x, y, w, h), "");
-        x += 10; y += 6;
+        float cx = x + 10, cy = y + 6;
 
-        y = LegendHeader(x, y, "Aliens");
-        y = LegendRow(x, y, AlienGreen, "Avanzando");
-        y = LegendRow(x, y, AlienRed, "Atacando torre");
-        y = LegendRow(x, y, Orange, "Peleando con soldado");
-
-        y = LegendHeader(x, y + 4, "Soldados");
-        y = LegendRow(x, y, SoldierBlue, "Patrullando");
-        y = LegendRow(x, y, SoldierYel, "Combatiendo");
-        y = LegendRow(x, y, SoldierPurp, "Apoyando otra torre");
-        y = LegendRow(x, y, SoldierGray, "Recargando (gasta energía)");
-
-        y = LegendHeader(x, y + 4, "Torres láser");
-        y = LegendRow(x, y, TowerCyan, "Inactiva (recarga energía)");
-        y = LegendRow(x, y, TowerFiring, "Disparando");
-        y = LegendRow(x, y, TowerOver, "Sobrecalentada");
-        LegendRow(x, y, TowerDead, "Destruida");
+        cy = LegendHeader(cx, cy, title);
+        foreach (var row in rows)
+            cy = LegendRow(cx, cy, row.color, row.text);
     }
 
     float LegendHeader(float x, float y, string text)
@@ -232,7 +251,6 @@ public class SimulationHUD : MonoBehaviour
         }
     }
 
-    /// <summary>Dibuja una barra centrada encima de un punto del mundo.</summary>
     void Bar(Vector3 world, float offsetUp, float width, float height, float fill, Color color)
     {
         Vector3 sp = cam.WorldToScreenPoint(world);
@@ -275,7 +293,7 @@ public class SimulationHUD : MonoBehaviour
         string reason = sim.endReason.Replace("VICTORIA: ", "").Replace("DERROTA: ", "");
         GUI.Label(new Rect(box.x + 20, box.y + 85, w - 40, 60), reason, bannerSubStyle);
         GUI.Label(new Rect(box.x + 20, box.y + 135, w - 40, 30),
-            $"Tiempo simulado: {sim.simulatedTime:F1} s · {sim.iterations} iteraciones", bannerSubStyle);
+            $"Tiempo de juego: {sim.simulatedTime:F1} segundos", bannerSubStyle);
 
         if (GUI.Button(new Rect(box.x + (w - 160) / 2f, box.y + h - 50, 160, 34), "Reiniciar"))
         {
@@ -300,12 +318,16 @@ public class SimulationHUD : MonoBehaviour
 
         bannerStyle = new GUIStyle(GUI.skin.label)
         {
-            fontSize = 52, fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter
+            fontSize = 52,
+            fontStyle = FontStyle.Bold,
+            alignment = TextAnchor.MiddleCenter
         };
 
         bannerSubStyle = new GUIStyle(labelStyle)
         {
-            fontSize = 17, alignment = TextAnchor.MiddleCenter, wordWrap = true
+            fontSize = 17,
+            alignment = TextAnchor.MiddleCenter,
+            wordWrap = true
         };
     }
 }

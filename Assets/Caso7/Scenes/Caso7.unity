@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93684f702cf15fd43ab94454cfea57f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Soldier
-  maxHealth: 10
+  maxHealth: 30
   health: 0
   speed: 2.5
   visionRange: 5
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93684f702cf15fd43ab94454cfea57f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Soldier
-  maxHealth: 10
+  maxHealth: 20
   health: 0
   speed: 2.5
   visionRange: 5
@@ -641,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93684f702cf15fd43ab94454cfea57f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Soldier
-  maxHealth: 10
+  maxHealth: 15
   health: 0
   speed: 2.5
   visionRange: 5
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93684f702cf15fd43ab94454cfea57f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Soldier
-  maxHealth: 10
+  maxHealth: 25
   health: 0
   speed: 2.5
   visionRange: 5
